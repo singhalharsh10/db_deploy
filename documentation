@@ -1,1 +1,5 @@
 site deployed at  https://db-deployc.herokuapp.com/
+
+
+we cant deploy it as it is on git as db.js contain password 
+we will use heroku cli

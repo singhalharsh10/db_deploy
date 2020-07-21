@@ -1,9 +1,15 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize({
-    dialect: 'sqlite',
-    storage: __dirname + '/test.db'
-})
+// these information has been copied from heroku credentials (Resources->postgre->credential)
+if (process.env.DATABASE_URL) {
+    db = new Sequelize(process.env.DATABASE_URL)
+} else {
+    db = new Sequelize({
+        dialect: 'sqlite',
+        storage: __dirname + '/test.db'
+    })
+}
+
 
 
 const Tasks = db.define('task', {
